@@ -795,7 +795,7 @@ body {
   background-color: #f7f7f7;
   padding: 6rem 4rem 3rem 4rem;
   font-size: 1.4rem;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: auto auto;
   grid-row-gap: 0.75rem;
   -webkit-box-pack: justify;
@@ -827,6 +827,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
 }
 .footer__nav li {
   margin-left: 1.5rem;
@@ -1339,14 +1340,16 @@ body {
   width:29.33%;
   margin:2%;
 }
-
+.footer .footer-text-right{
+  text-align: center;
+}
 
 
 
 
 /* Responsive */
 /*  X-Small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 575px) and (min-width: 420px) {
+@media only screen and (max-width: 575px) and (min-width: 360px) {
     .ul-res{
       margin-top:4rem;
     }
