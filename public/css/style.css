@@ -1349,7 +1349,7 @@ body {
 
 /* Responsive */
 /*  X-Small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 575px) and (min-width: 360px) {
+@media only screen and (max-width: 575px) and (min-width: 280px) {
     .ul-res{
       margin-top:4rem;
     }
