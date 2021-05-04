@@ -71,7 +71,7 @@ app.use('/',limiter);
 
 //Stripe webhook url
 // app.post('/webhook-checkout', app.use(express.raw()),bookingController.webhookCheckout);
-app.post('/webhook-checkout',bodyParser.raw({ type: 'application/json' }),bookingController.webhookCheckout);
+app.post('/webhook-checkout',bodyParser.raw(),bookingController.webhookCheckout);
 
 //Reading data from body into req.body    ...start
 app.use(express.json({ limit: '10kb' }));

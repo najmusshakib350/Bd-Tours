@@ -11,8 +11,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currently booked tour
  const tour = await Tour.findById(req.params.tourId);
   // console.log(tour);
-  console.log("Hello i am getCheckoutSession function");
-  console.log(req.params.tourId);
   console.log(tour);
   // 2) Create checkout session
    const session = await stripe.checkout.sessions.create({
@@ -64,9 +62,6 @@ const createBookingCheckout = async session => {
 };
 
 exports.webhookCheckout = (req, res, next) => {
-  console.log("Hello Daffodil international university webhookCheckout\n");
-  console.log("Hello i am req.body", req.body);
-  console.log("Hello i am req.headers", req.headers);
   const signature = req.headers['stripe-signature'];
 
   let event;
