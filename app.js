@@ -10,7 +10,7 @@ const xss=require('xss-clean');
 const hpp=require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
-
+const bodyParser=require('body-parser');
 
 const AppError=require('./utils/appError');
 const globalErrorHandler=require('./controllers/errController');
@@ -18,6 +18,8 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter=require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+//Stripe webhook
+const bookingController=require('./controllers/bookingController');
 const viewRouter=require('./routes/viewRoutes');
 
 const app = express();
@@ -63,8 +65,13 @@ const limiter=rateLimit({
 });
 
 app.use('/',limiter);
+
 //Security Middleware end
 
+
+//Stripe webhook url
+// app.post('/webhook-checkout', app.use(express.raw()),bookingController.webhookCheckout);
+app.post('/webhook-checkout',bodyParser.raw({ type: 'application/json' }),bookingController.webhookCheckout);
 
 //Reading data from body into req.body    ...start
 app.use(express.json({ limit: '10kb' }));
